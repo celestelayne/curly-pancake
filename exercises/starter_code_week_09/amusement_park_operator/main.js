@@ -20,3 +20,21 @@
     3. Otherwise, recommend the lazy river
         console.log('Why not enjoy a float down the Lazy River?');
 */
+
+console.log('hello, this works!');
+
+// Part 1
+let age = 6;
+let height = 5;
+
+console.log('this is the age:', age);
+console.log('this is the height:', height);
+
+// Part 2
+if(age < 8) {
+    console.log("Check out the Merry-Go-Round. You'll love it!");
+} else if (age > 8 && age < 65 && height > 4.5) {
+    console.log("Check out the Roller Coaster. It's awesome!");
+} else {
+    console.log('Why not enjoy a float down the Lazy River?');
+}
