@@ -44,6 +44,55 @@ people.forEach(person => {
     container.appendChild(listItem);
 })
 
+/* 
+    search name functionality 
+    1. get the input element
+    2. filter the people array based on the input value
+    3. pass that value to a function that will display the results
+    4. clear the results
+*/
 
+const searchBar = document.querySelector('.input');
+
+// clear list function defined
+const clearList = () => {
+    container.innerHTML = '';
+}
+// second function defined
+const displayFiltered = (name) => {
+    console.log(name)
+    // clear the container
+    clearList()
+
+    for(let i = 0; i < name.length; i++) {
+        console.log(name[i])
+        // create a new list item
+        let listItem = document.createElement('li');
+        // add text content to the list item
+        listItem.textContent = name[i].name;
+        // append the list item to the container
+        container.appendChild(listItem);
+    }
+}
+
+// first function defined
+const searchNames = (event) => {
+    const searchString = event.target.value.toLowerCase();
+    console.log('line 57', searchString);
+
+    const filteredPeople = people.filter(person => {
+        if(searchString) {
+            return person.name.toLowerCase().includes(searchString)
+        }
+    })
+
+    console.log('line 63', filteredPeople);
+    // second function being called
+    displayFiltered(filteredPeople)
+}
+
+
+// first function being called
+searchBar.addEventListener('keyup', searchNames);
 
 

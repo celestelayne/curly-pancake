@@ -6,13 +6,13 @@ const artists = [
         birth_date: "October 17, 1955",
         birth_place: "Birmingham, Alabama",
         works: [
-        {
-            title: "Past Times",
-            year: 1997,
-            medium: "acrylic and collage on unstretched canvas",
-            image:
-            "https://www.culturetype.com/wp-content/uploads/2016/05/MarshallKerryJames_PastTimes_v03.jpg"
-        }
+            {
+                title: "Past Times",
+                year: 1997,
+                medium: "acrylic and collage on unstretched canvas",
+                image:
+                "https://www.culturetype.com/wp-content/uploads/2016/05/MarshallKerryJames_PastTimes_v03.jpg"
+            }
         ]
     },
     {
@@ -72,3 +72,26 @@ const artists = [
         ]
     }
 ];
+
+const container = document.querySelector('.artist-container');
+
+// create function called renderAllArtists
+const renderAllArtists = (data) => {
+    data.forEach(artist => {
+        console.log(artist)
+
+        let imgContainer = document.createElement('div');
+        let imgElement = document.createElement('img');
+
+        imgElement.classList.add('image-container');
+
+        let image = artist.works[0].image;
+        console.log(image);
+        imgElement.setAttribute('src', image);
+
+        imgContainer.appendChild(imgElement);
+        container.appendChild(imgContainer);
+    })
+}
+
+renderAllArtists(artists)
